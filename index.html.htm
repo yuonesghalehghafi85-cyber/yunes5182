@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="fa" dir="rtl" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>سرآشپز اژدر - رستوران فست فود</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Vazirmatn', sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+      color: #fff;
+    }
+
+    .app-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
+    }
+
+    .dragon-icon {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .slide-in-right {
+      animation: slideInRight 0.8s ease-out forwards;
+    }
+
+    .page-hidden {
+      display: none;
+    }
+
+    .page-visible {
+      display: block;
+      animation: fadeInUp 0.5s ease-out;
+    }
+
+    .menu-card {
+      transition: all 0.3s ease;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 107, 53, 0.8);
+    }
+
+    .glow-accent {
+      box-shadow: 0 0 40px rgba(255, 107, 53, 0.25);
+    }
+
+    .centered-section {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .centered-container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #fb923c;
+      cursor: pointer;
+      font-weight: 500;
+      border: none;
+      background: none;
+      padding: 0;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    .back-button:hover {
+      color: #fbbf24;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="app-wrapper"><!-- Navigation -->
+   <nav class="sticky top-0 z-50 bg-black/80 backdrop-blur-md border-b border-orange-500/20">
+    <div class="centered-section px-4 py-4">
+     <div class="centered-container flex items-center justify-between"><button onclick="goToPage('home')" class="flex items-center gap-3 hover:opacity-80 transition-opacity" style="border: none; background: none; cursor: pointer;">
+       <div class="text-4xl dragon-icon">
+        🐉
+       </div>
+       <div>
+        <h1 id="nav-title" class="text-lg font-bold text-orange-400">سرآشپز اژدر</h1>
+        <p class="text-xs text-gray-400">فست فود</p>
+       </div></button>
+      <div class="hidden md:flex items-center gap-6"><button onclick="goToPage('home')" class="text-gray-300 hover:text-orange-400 transition-colors font-medium" style="border: none; background: none; cursor: pointer;">خانه</button> <button onclick="goToPage('about')" class="text-gray-300 hover:text-orange-400 transition-colors font-medium" style="border: none; background: none; cursor: pointer;">درباره ما</button> <button onclick="goToPage('menu')" class="text-gray-300 hover:text-orange-400 transition-colors font-medium" style="border: none; background: none; cursor: pointer;">منو</button> <button onclick="goToPage('contact')" class="text-gray-300 hover:text-orange-400 transition-colors font-medium" style="border: none; background: none; cursor: pointer;">تماس</button>
+      </div><button onclick="goToPage('menu')" class="md:hidden text-2xl text-gray-300 hover:text-orange-400" style="border: none; background: none; cursor: pointer;">🍔</button>
+     </div>
+    </div>
+   </nav><!-- Home Page -->
+   <section id="home-page" class="page-visible flex-1 flex items-center justify-center relative px-4 py-20">
+    <div class="absolute inset-0 overflow-hidden">
+     <div class="absolute top-32 left-1/2 -translate-x-1/2 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl"></div>
+     <div class="absolute bottom-32 left-1/2 -translate-x-1/2 w-96 h-96 bg-red-500/10 rounded-full blur-3xl"></div>
+    </div>
+    <div class="relative z-10 text-center max-w-4xl mx-auto">
+     <div class="text-9xl mb-8 dragon-icon">
+      🐉
+     </div>
+     <h1 id="hero-title" class="text-5xl md:text-7xl font-black mb-6 bg-gradient-to-r from-orange-400 via-red-500 to-yellow-500 bg-clip-text text-transparent">سرآشپز اژدر</h1>
+     <p id="tagline" class="text-2xl md:text-3xl text-gray-300 mb-8 font-light">آتش، طعم و خاطره</p>
+     <p class="text-gray-400 text-lg md:text-xl mb-12 leading-relaxed max-w-2xl mx-auto">بهترین فست فود با کیفیت و طعم منحصر به فرد</p>
+     <div class="flex flex-col sm:flex-row gap-4 justify-center"><button onclick="goToPage('menu')" class="px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-full text-lg font-bold hover:shadow-lg hover:shadow-orange-500/50 transition-all" style="border: none; cursor: pointer;"> 🔥 مشاهده منو </button> <button onclick="goToPage('contact')" class="px-8 py-4 border-2 border-orange-500 rounded-full text-lg font-bold text-orange-400 hover:bg-orange-500/10 transition-all" style="border: 2px solid #f97316; cursor: pointer; background: none;"> 📞 تماس با ما </button>
+     </div>
+     <div class="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+      <div class="text-center">
+       <div class="text-4xl font-bold text-orange-400">
+        +۵۰۰۰
+       </div>
+       <div class="text-gray-400 text-sm">
+        مشتری راضی
+       </div>
+      </div>
+      <div class="text-center">
+       <div class="text-4xl font-bold text-orange-400">
+        3
+       </div>
+       <div class="text-gray-400 text-sm">
+        سال تجربه
+       </div>
+      </div>
+      <div class="text-center">
+       <div class="text-4xl font-bold text-orange-400">
+        ۴.۹
+       </div>
+       <div class="text-gray-400 text-sm">
+        امتیاز
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- About Page -->
+   <section id="about-page"    class="page-hidden flex-1 flex items-center px-4 py-20">
+    <div class="centered-section">
+     <div class="centered-container">
+
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+       <div class="fade-in-up">
+        <div class="inline-block px-4 py-2 bg-orange-500/20 rounded-full mb-4"><span class="text-orange-400 font-medium">📖 درباره ما</span>
+        </div>
+        <h2 id="about-title" class="text-4xl md:text-5xl font-bold mb-8 leading-tight"> استاد اژدر</h2>
+        <p id="about-description" class="text-gray-400 text-lg leading-relaxed mb-8">سرآشپز اژدر با بیش ا 3سال تجربه در صنعت غذا، به عنوان یکی از برترین رستوران‌های فست فود شناخته می‌شود. ما با ترکیب تجربه و نوآوری، طعم‌های منحصر به فردی را برای شما خلق می‌کنیم.</p>
+        <div class="space-y-4">
+         <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center text-2xl flex-shrink-0">
+           👨‍🍳
+          </div>
+          <div>
+           <h3 class="font-bold mb-1">استاد سرآشپز</h3>
+           <p class="text-gray-400 text-sm">۳ سال تجربه</p>
+          </div>
+         </div>
+         <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center text-2xl flex-shrink-0">
+           🏆
+          </div>
+          <div>
+           <h3 class="font-bold mb-1">جایزه‌ها</h3>
+           <p class="text-gray-400 text-sm">بهترین فست فود</p>
+          </div>
+         </div>
+         <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center text-2xl flex-shrink-0">
+           ⭐
+          </div>
+          <div>
+           <h3 class="font-bold mb-1">رضایت</h3>
+           <p class="text-gray-400 text-sm">۴.۹ از ۵ ستاره</p>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="slide-in-right">
+        <div class="relative">
+         <div class="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-3xl blur-2xl"></div>
+         <div class="relative bg-gradient-to-br from-gray-900/80 to-gray-800/80 rounded-3xl p-12 border border-orange-500/30 glow-accent">
+          <div class="text-center">
+           <div class="text-8xl mb-6">
+            👨‍🍳
+           </div>
+           <h3 class="text-3xl font-bold mb-3">استاد اژدر(سید ابراهیم جعفری)</h3>
+           <p class="text-orange-400 font-medium mb-4">بنیان‌گذار</p>
+           <p class="text-gray-400 leading-relaxed">"غذای خوب برای روح و دل است"</p>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div><!-- Features -->
+      <div class="mt-24">
+       <h2 class="text-4xl font-bold mb-12 text-center">ویژگی‌های ما</h2>
+       <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-2xl p-8 border border-orange-500/30">
+         <div class="text-5xl mb-4">
+          🥘
+         </div>
+         <h3 class="text-2xl font-bold mb-3">مواد تازه</h3>
+         <p class="text-gray-400">مواد اولیه روزانه و تازه</p>
+        </div>
+        <div class="bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-2xl p-8 border border-orange-500/30">
+         <div class="text-5xl mb-4">
+          ⚡
+         </div>
+         <h3 class="text-2xl font-bold mb-3">تحویل سریع</h3>
+         <p class="text-gray-400">متوسط زمان 30 دقیقه</p>
+        </div>
+        <div class="bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-2xl p-8 border border-orange-500/30">
+         <div class="text-5xl mb-4">
+          🧼
+         </div>
+         <h3 class="text-2xl font-bold mb-3">بهداشت کامل</h3>
+         <p class="text-gray-400">استانداردهای بین‌المللی</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Menu Page -->
+   <section id="menu-page" class="page-hidden flex-1 px-4 py-20">
+    <div class="centered-section">
+     <div class="centered-container">
+
+      <div class="text-cente mb-16">
+       <h2 class="text-4xl md:text-5xl font-bold mb-4">🍽️ منوی ما</h2>
+       <p class="text-gray-400 text-lg">بر روی هر غذا کلیک کنید</p>
+      </div><!-- Category Tabs -->
+      <div class="flex flex-wrap justify-center gap-3 mb-12"><button onclick="filterMenu('all')" class="category-tab active px-6 py-3 rounded-full bg-orange-500 text-white font-medium transition-all hover:bg-orange-600" style="border: none; cursor: pointer;"> همه </button> <button onclick="filterMenu('burger')" class="category-tab px-6 py-3 rounded-full bg-gray-800 text-gray-300 font-medium hover:bg-gray-700 transition-all" style="border: none; cursor: pointer;"> 🍔 برگر </button> <button onclick="filterMenu('pizza')" class="category-tab px-6 py-3 rounded-full bg-gray-800 text-gray-300 font-medium hover:bg-gray-700 transition-all" style="border: none; cursor: pointer;"> 🍕 پیتزا </button> <button onclick="filterMenu('chicken')" class="category-tab px-6 py-3 rounded-full bg-gray-800 text-gray-300 font-medium hover:bg-gray-700 transition-all" style="border: none; cursor: pointer;"> 🍗 مرغ </button> <button onclick="filterMenu('drink')" class="category-tab px-6 py-3 rounded-full bg-gray-800 text-gray-300 font-medium hover:bg-gray-700 transition-all" style="border: none; cursor: pointer;"> 🥤 نوشیدنی </button>
+      </div><!-- Menu Grid -->
+      <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      </div>
+     </div>
+    </div>
+   </section><!-- Food Detail Page -->
+                               <section id="food-detail-page" class="page-hidden flex-1 flex items-center px-4 py-20">
+    <div class="centered-section">
+     <div class="centered-container">
+      <div class="mb-8"><button class="back-button" onclick="goToPage('menu')">←منو</button>
+      </div>
+                  <div id="food-detail-content" class="bg-gradient-to-br from-gray-900/50 to-gray-800/50 rounded-3xl p-12 border border-orange-500/30 glow-accent">
+      </div>
+     </div>
+    </div>
+   </section>
+<!-- Contact Page -->
+   <section id="contact-page" class="page-hidden flex-1 flex items-center px-4 py-20">
+    <div class="centered-section">
+     <div class="centered-container">
+
+      <div class="text-center mb-16">
+       <h2 class="text-4xl md:text-5xl font-bold mb-4">📞 تماس با ما</h2>
+       <p class="text-gray-400 text-lg">ما همیشه برای شنیدن از شما آماده‌ایم</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 mb-12">
+       <div class="text-center">
+        <div class="text-5xl mb-4">
+         📞
+        </div>
+        <h3 class="text-xl font-bold mb-3">تلفن</h3>
+        <p id="contact-phone" class="text-orange-400 text-lg font-medium">017-35886552</p>
+       </div>
+       <div class="text-center">
+        <div class="text-5xl mb-4">
+         📍
+        </div>
+        <h3 class="text-xl font-bold mb-3">آدرس</h3>
+        <p id="contact-address" class="text-gray-400 text-sm leading-relaxed">رامیان میدان ولیصر بلوار دانشجو,4</p>
+       </div>
+       <div class="text-center">
+        <div class="text-5xl mb-4">
+         📷
+        </div>
+        <h3 class="text-xl font-bold mb-3">اینستگرام</h3>
+        <p id="contact-email" class="text-orange-400 text-sm break-all">azhdarchef</p>
+       </div>
+      </div>
+      <div class="bg-gradient-to-r from-orange-500 to-red-500 rounded-3xl p-12 text-center glow-accent">
+       <h2 class="text-3xl font-bold mb-6">آماده برای تجربه؟</h2>
+       <p class="text-lg text-white/90 mb-8">امروز همین لحظه سفارش دهید</p><a href="tel:017-3588-6552" class="px-8 py-4 bg-white text-orange-600 rounded-full text-lg font-bold hover:shadow-lg transition-all inline-block"> 📞 تماس فوری </a>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="border-t border-gray-800 py-8 px-4 mt-auto">
+    <div class="centered-section">
+     <div class="centered-container text-center">
+      <div class="flex items-center justify-center gap-3 mb-4"><span class="text-3xl">🐉</span> <span id="footer-title" class="text-xl font-bold text-orange-400">سرآشپز اژدر</span>
+      </div>
+      <p class="text-gray-500">© ۱۴۰۳ تمامی حقوق محفوظ است</p>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      restaurant_name: 'سرآشپز اژدر',
+      tagline: 'آتش، طعم و خاطره',
+      hero_title: 'سرآشپز اژدر',
+      about_title: 'داستان سرآشپز اژدر',
+      about_description: 'سرآشپز اژدر با بیش از ۱۵ سال تجربه در صنعت غذا، به عنوان یکی از برترین رستوران‌های فست فود شناخته می‌شود.',
+      phone: '۰۲۱-۱۲۳۴۵۶۷۸',
+      address: 'تهران، خیابان ولیعصر',
+      email: 'info@sarashpz.ir'
+    };
+
+    const menuItems = [
+      { id: 1, name: 'برگر کلاسیک اژدر', category: 'burger', price: 85000, emoji: '🍔', description: 'گوشت ۱۵۰ گرمی، پنیر چدار، کاهو، گوجه' },
+      { id: 2, name: 'برگر دوبل آتشین', category: 'burger', price: 125000, emoji: '🔥', description: '۲ لایه گوشت، سس تند، هالاپینو' },
+      { id: 3, name: 'برگر قارچ و پنیر', category: 'burger', price: 95000, emoji: '🍄', description: 'گوشت ۱۵۰ گرمی، قارچ، پنیر گودا' },
+      { id: 4, name: 'پیتزا پپرونی', category: 'pizza', price: 145000, emoji: '🍕', description: 'پپرونی، پنیر موزارلا' },
+      { id: 5, name: 'پیتزا مخصوص اژدر', category: 'pizza', price: 185000, emoji: '🐉', description: 'گوشت، مرغ، قارچ، فلفل' },
+      { id: 6, name: 'پیتزا سبزیجات', category: 'pizza', price: 125000, emoji: '🥬', description: 'قارچ، فلفل، زیتون، گوجه' },
+      { id: 7, name: 'مرغ سوخاری ۸ تکه', category: 'chicken', price: 165000, emoji: '🍗', description: 'مرغ کریسپی با سس مخصوص' },
+      { id: 8, name: 'بال مرغ آتشین', category: 'chicken', price: 95000, emoji: '🌶️', description: 'بال با سس بوفالو تند' },
+      { id: 9, name: 'ناگت مرغ', category: 'chicken', price: 75000, emoji: '🥡', description: '۱۲ عدد ناگت با سس' },
+      { id: 10, name: 'نوشابه قوطی', category: 'drink', price: 15000, emoji: '🥤', description: 'کوکا، فانتا، اسپرایت' },
+      { id: 11, name: 'دوغ محلی', category: 'drink', price: 20000, emoji: '🥛', description: 'دوغ تازه با نعناع' },
+      { id: 12, name: 'آب معدنی', category: 'drink', price: 10000, emoji: '💧', description: 'آب معدنی ۵۰۰ میلی' }
+    ];
+
+    let currentCategory = 'all';
+
+    function goToPage(pageName) {
+      document.querySelectorAll('[id$="-page"]').forEach(page => {
+        page.classList.remove('page-visible');
+        page.classList.add('page-hidden');
+      });
+      const page = document.getElementById(pageName + '-page');
+      if (page) {
+        page.classList.remove('page-hidden');
+        page.classList.add('page-visible');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function showFoodDetail(foodId) {
+      const food = menuItems.find(item => item.id === foodId);
+      if (food) {
+        const detailContent = document.getElementById('food-detail-content');
+        detailContent.innerHTML = `
+          <div class="text-center">
+            <div class="text-9xl mb-8">${food.emoji}</div>
+            <h1 class="text-5xl font-bold mb-4">${food.name}</h1>
+            <p class="text-gray-400 text-xl mb-8">${food.description}</p>
+            <div class="mb-12">
+              <span class="text-4xl font-bold text-orange-400">${formatPrice(food.price)}</span>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+              <div class="bg-orange-500/10 rounded-2xl p-8 border border-orange-500/30">
+                <h3 class="text-2xl font-bold mb-4">ترکیبات</h3>
+                <p class="text-gray-400 leading-relaxed">${food.description}</p>
+              </div>
+              <div class="bg-orange-500/10 rounded-2xl p-8 border border-orange-500/30">
+                <h3 class="text-2xl font-bold mb-4">ویژگی‌ها</h3>
+                <ul class="text-gray-400 space-y-2 text-right">
+                  <li>✓ مواد اولیه تازه</li>
+                  <li>✓ بدون مواد افزودنی</li>
+                  <li>✓ طعم منحصر</li>
+                  <li>✓ تحویل سریع</li>
+                </ul>
+              </div>
+            </div>
+            <button onclick="goToPage('menu')" class="px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-full text-lg font-bold hover:shadow-lg hover:shadow-orange-500/50 transition-all" style="border: none; cursor: pointer;">
+              بازگشت به منو 🔄
+            </button>
+          </div>
+        `;
+        goToPage('food-detail');
+      }
+    }
+
+    function filterMenu(category) {
+      currentCategory = category;
+      document.querySelectorAll('.category-tab').forEach(btn => {
+        btn.classList.remove('bg-orange-500', 'text-white', 'hover:bg-orange-600');
+        btn.classList.add('bg-gray-800', 'text-gray-300', 'hover:bg-gray-700');
+      });
+      event.target.classList.add('bg-orange-500', 'text-white', 'hover:bg-orange-600');
+      event.target.classList.remove('bg-gray-800', 'text-gray-300', 'hover:bg-gray-700');
+      renderMenu(category);
+    }
+
+    function renderMenu(category = 'all') {
+      const grid = document.getElementById('menu-grid');
+      const filtered = category === 'all' ? menuItems : menuItems.filter(item => item.category === category);
+      grid.innerHTML = filtered.map(item => `
+        <button onclick="showFoodDetail(${item.id})" class="menu-card bg-gray-900/70 rounded-2xl p-6 border border-gray-800 text-left w-full text-white" style="border: none; background: rgba(17, 24, 39, 0.7); cursor: pointer;">
+          <div class="text-6xl mb-4">${item.emoji}</div>
+          <h3 class="text-xl font-bold mb-2">${item.name}</h3>
+          <p class="text-gray-400 text-sm mb-4">${item.description}</p>
+          <div class="flex items-center justify-between">
+            <span class="text-xl font-bold text-orange-400">${formatPrice(item.price)}</span>
+            <span class="text-gray-400">→</span>
+          </div>
+        </button>
+      `).join('');
+    }
+
+    function formatPrice(price) {
+      return new Intl.NumberFormat('fa-IR').format(price) + ' تومان';
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (config) => {
+          const name = config.restaurant_name || defaultConfig.restaurant_name;
+          document.getElementById('nav-title').textContent = name;
+          document.getElementById('hero-title').textContent = config.hero_title || defaultConfig.hero_title;
+          document.getElementById('footer-title').textContent = name;
+          document.getElementById('tagline').textContent = config.tagline || defaultConfig.tagline;
+          document.getElementById('about-title').textContent = config.about_title || defaultConfig.about_title;
+          document.getElementById('about-description').textContent = config.about_description || defaultConfig.about_description;
+          document.getElementById('contact-phone').textContent = config.phone || defaultConfig.phone;
+          document.getElementById('contact-address').textContent = config.address || defaultConfig.address;
+          document.getElementById('contact-email').textContent = config.email || defaultConfig.email;
+        },
+        mapToCapabilities: (config) => ({
+          recolorables: [],
+          borderables: [],
+          fontEditable: undefined,
+          fontSizeable: undefined
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ['restaurant_name', config.restaurant_name || defaultConfig.restaurant_name],
+          ['tagline', config.tagline || defaultConfig.tagline],
+          ['hero_title', config.hero_title || defaultConfig.hero_title],
+          ['about_title', config.about_title || defaultConfig.about_title],
+          ['about_description', config.about_description || defaultConfig.about_description],
+          ['phone', config.phone || defaultConfig.phone],
+          ['address', config.address || defaultConfig.address],
+          ['email', config.email || defaultConfig.email]
+        ])
+      });
+    }
+
+    renderMenu();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cc39fb28398dbff',t:'MTc3MDgxMDU3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
